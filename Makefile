@@ -6,7 +6,7 @@
 #    By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/01 00:16:40 by rpapagna          #+#    #+#              #
-#    Updated: 2019/11/24 19:31:48 by rpapagna         ###   ########.fr        #
+#    Updated: 2019/11/24 20:06:06 by rpapagna         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -78,6 +78,7 @@ $(NAME): $(OBJ)
 		@printf "[$(GREEN)$(NAME)$(NC) ]\t[:##        :]\r"
 		@gcc $(FLAGS) -Werror $(OBJ_PATH)/*.o $(MLX_LNK) $(FT_LNK) -o $(NAME)
 		@printf "[$(GREEN)$(NAME)$(NC) ]\t[:##########:]\n"
+		@printf "usage: ./engine demo.map\n"
 
 debug:
 		@rm -rf $(NAME)

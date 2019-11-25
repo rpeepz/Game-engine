@@ -6,7 +6,7 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/19 13:14:09 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/11/24 20:01:59 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/11/24 20:04:51 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,11 +95,8 @@ static int		check_clip(t_engine engine, int key)
 	0.5f : -0.5f);
 	if ((int)loc.y < 0 || (int)loc.y > engine.map->height
 	|| (int)loc.x < 0|| (int)loc.x > engine.map->width ||
-	!(engine.map->cell[(int)loc.y][(int)loc.x])){
-		ft_printf("No clip\n");
+	!(engine.map->cell[(int)loc.y][(int)loc.x]))
 		return (0);
-	}
-	ft_printf("clip\n");
 	return (1);
 }
 
