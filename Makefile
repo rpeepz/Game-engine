@@ -6,7 +6,7 @@
 #    By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/01 00:16:40 by rpapagna          #+#    #+#              #
-#    Updated: 2019/11/24 19:25:08 by rpapagna         ###   ########.fr        #
+#    Updated: 2019/11/24 19:31:48 by rpapagna         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ UTIL	= init.c \
 		map.c
 OUT		= out_console.c
 
-FLAGS	= -Wall -Wextra -Werror
+FLAGS	= -Wall -Wextra
 INC		= includes/game_engine.h
 
 RU_DEB	=_DEBUG_RULE_
@@ -76,7 +76,7 @@ re: fclean all
 
 $(NAME): $(OBJ)
 		@printf "[$(GREEN)$(NAME)$(NC) ]\t[:##        :]\r"
-		@gcc $(FLAGS) $(OBJ_PATH)/*.o $(MLX_LNK) $(FT_LNK) -o $(NAME)
+		@gcc $(FLAGS) -Werror $(OBJ_PATH)/*.o $(MLX_LNK) $(FT_LNK) -o $(NAME)
 		@printf "[$(GREEN)$(NAME)$(NC) ]\t[:##########:]\n"
 
 debug:

@@ -6,7 +6,7 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/01 00:21:10 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/11/24 18:34:39 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/11/24 19:50:56 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,7 +114,7 @@ typedef struct			s_engine
 	char				**scene;
 	t_image				*image;
 	t_input				*in;
-	t_player			**player;
+	t_player			*player;
 }						t_engine;
 
 /*
@@ -137,8 +137,8 @@ int						ft_out(int key);
 void					render(t_engine *game);
 void					start_engine(t_engine *game);
 
-int						del_players(t_player ***aplayers, int i);
-t_player				**init_players(t_engine *engine);
+int						del_players(t_player **aplayers, int i);
+t_player				*init_players(t_engine *engine);
 
 t_image					*del_image(t_engine *game, t_image *img);
 t_engine				*del_engine(t_engine **aengine, int i);
