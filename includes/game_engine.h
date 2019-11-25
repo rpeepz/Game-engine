@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   game.h                                             :+:      :+:    :+:   */
+/*   game_engine.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/01 00:21:10 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/11/24 17:01:51 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/11/24 18:34:39 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GAME_H
-# define GAME_H
+#ifndef GAME_ENGINE_H
+# define GAME_ENGINE_H
 
 # include "../libs/libft/includes/libft.h"
 # include "../libs/minilibx/includes/mlx.h"
-# include "../resources/splash.xpm"
 # include "keys.h"
 # include <math.h>
 # include <pthread.h>
 # include <stdio.h>
 
-# define USAGE "usage: ./game"
 # define WIDTH 1280
 # define HEIGHT 720
 # define VALID_IN_X(x) (x == KEY_RIGHT || x == KEY_LEFT)
@@ -64,7 +62,9 @@ typedef struct			s_image
 	int					endian;
 }						t_image;
 
-//unused in engine
+/*
+**	unused in engine
+*/
 typedef struct			s_camera
 {
 	double				offsetz;
@@ -75,67 +75,82 @@ typedef struct			s_input
 {
 	struct s_keys		*key;
 	struct s_mouse		*mouse;
-	char				key_down[4]; //cache for held down keys
+	char				key_down[8]; //cache for held down keys
 }						t_input;
 
+/*
+**	player location and view direction on 2d map
+*/
 typedef struct			s_player
 {
+	char				name[16];
 	t_2dp				loc;
 	t_2dp				eye;
 	float				angle;
 	float				fov;
-	float				depth;
+	float				depth; //how far player can see
 }						t_player;
 
-typedef struct			s_render
+/*
+**	render struct for 1st person
+*/
+typedef struct			s_fprender
 {
 	float				ray_angle;
 	float				distance;
 	int					hit;
 	int					ceiling;
 	int					floor;
-}						t_render;
+}						t_fprender;
 
-typedef struct			s_game
+typedef struct			s_engine
 {
 	char				started;
-	t_player			player;
+	int					player_count;
 	t_camera			cam;
+	t_map				*map;
 	void				*mlx;
 	void				*win;
 	char				**scene;
-	t_map				*map;
 	t_image				*image;
 	t_input				*in;
-}						t_game;
-
-//struct to hold values passed around in different threads
-typedef struct			s_game_thread
-{
-	t_game				*game;
-	int					i;
-}						t_game_thread;
+	t_player			**player;
+}						t_engine;
 
 /*
-**void					render_thread(t_game *game);
+**	struct to hold values passed around in different threads
+*/
+typedef struct			s_game_thread
+{
+	t_engine			*engine;
+	int					i;
+}						t_engine_thread;
+
+/*
+**void					render_thread(t_engine *game);
 */
 
-void					render(t_game *game);
-void					start_game(t_game *game);
-
 int						del_array(char **arr, int len);
-void					del_map(t_map *map);
-t_image					*del_image(t_game *game, t_image *img);
-t_game					*del_game(t_game **agame, int i);
-t_game					*init(char *title, t_map *map);
-int						validate(char *file, t_map *map);
-
 int						ft_help(void);
 int						ft_out(int key);
 
-int						hook_keydown(int key, t_game *game);
-int						hook_keyup(int key, t_game *game);
-int						hook_mousedown(int button, int x, int y, t_game *game);
-int						hook_mousemove(int x, int y, t_game *game);
+void					render(t_engine *game);
+void					start_engine(t_engine *game);
+
+int						del_players(t_player ***aplayers, int i);
+t_player				**init_players(t_engine *engine);
+
+t_image					*del_image(t_engine *game, t_image *img);
+t_engine				*del_engine(t_engine **aengine, int i);
+t_engine				*init_engine(char *title, t_map *map);
+
+void					del_map(t_map **amap);
+int						validate_map(char *file, t_map *map);
+
+
+int						hook_keydown(int key, t_engine *game);
+int						hook_keyup(int key, t_engine *game);
+int						hook_mousedown(int button, int x, int y, t_engine *game);
+int						hook_mousemove(int x, int y, t_engine *game);
 
 #endif
