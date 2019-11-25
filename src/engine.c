@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   engine.c                                             :+:      :+:    :+:   */
+/*   engine.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 16:46:19 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/11/24 18:50:23 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/11/24 22:32:05 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,8 @@ void	splash(t_engine *engine)
 	mlx_put_image_to_window(engine->mlx, engine->win,
 	mlx_xpm_to_image(engine->mlx, _splash_, &tw, &th),
 	(WIDTH / 2 - (tw / 2)), (HEIGHT / 2 - (th / 2)));
-	mlx_string_put(engine->mlx, engine->win, (WIDTH * 10 / 20), (HEIGHT * 10 / 50),
+	mlx_string_put(engine->mlx, engine->win,
+	(WIDTH * 10 / 20), (HEIGHT * 10 / 50),
 	(0xffefd5), "Press Enter");
 	mlx_hook(engine->win, 2, 0, press_start, engine);
 	mlx_hook(engine->win, 17, 0, hook_close, engine);

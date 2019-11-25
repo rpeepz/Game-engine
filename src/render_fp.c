@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   render.c                                           :+:      :+:    :+:   */
+/*   render_fp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/21 20:11:33 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/11/24 19:54:33 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/11/24 22:36:38 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,10 @@ void	get_hit(t_fprender *v, t_engine *engine)
 	while (!v->hit && v->distance < engine->player[0].depth)
 	{
 		v->distance += 0.008f;
-		cast.x = engine->player[0].loc.x + engine->player[0].eye.x * v->distance;
-		cast.y = engine->player[0].loc.y + engine->player[0].eye.y * v->distance;
+		cast.x =\
+		engine->player[0].loc.x + engine->player[0].eye.x * v->distance;
+		cast.y =\
+		engine->player[0].loc.y + engine->player[0].eye.y * v->distance;
 		if ((int)cast.x < 0 || (int)cast.x >= engine->map->width ||
 			(int)cast.y < 0 || (int)cast.y >= engine->map->height)
 		{
@@ -92,8 +94,8 @@ void	draw_(t_engine *engine, t_fprender v, t_point pixel, int *color)
 }
 
 /*
-**	calculate from the current player location, the angle from which the rays are sent
-**	and draw column by column the values retrieved from get_hit
+**	calculate from the current player location, the angle from which the rays
+**	are sent and draw column by column the values retrieved from get_hit
 */
 
 void	render(t_engine *engine)
@@ -106,8 +108,9 @@ void	render(t_engine *engine)
 	pixel.x = -1;
 	while (++pixel.x < WIDTH)
 	{
-		v.ray_angle = (engine->player[0].angle - (engine->player[0].fov / 2.0)) +
-					((float)pixel.x / (float)WIDTH) * engine->player[0].fov;
+		v.ray_angle =\
+		(engine->player[0].angle - (engine->player[0].fov / 2.0)) +\
+		((float)pixel.x / (float)WIDTH) * engine->player[0].fov;
 		engine->player[0].eye.x = sinf(v.ray_angle);
 		engine->player[0].eye.y = cosf(v.ray_angle);
 		get_hit(&v, engine);
@@ -116,5 +119,6 @@ void	render(t_engine *engine)
 		while (++pixel.y < HEIGHT)
 			draw_(engine, v, pixel, color);
 	}
-	mlx_put_image_to_window(engine->mlx, engine->win, engine->image->image, 0, 0);
+	mlx_put_image_to_window(engine->mlx,\
+	engine->win, engine->image->image, 0, 0);
 }

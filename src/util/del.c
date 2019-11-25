@@ -6,13 +6,13 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 17:02:28 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/11/24 19:53:38 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/11/24 22:37:39 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/game_engine.h"
 
-int			del_array(char **arr, int len)
+int				del_array(char **arr, int len)
 {
 	int		i;
 
@@ -25,7 +25,7 @@ int			del_array(char **arr, int len)
 	return (-42);
 }
 
-void		del_map(t_map **amap)
+void			del_map(t_map **amap)
 {
 	int		i;
 	t_map	*map;
@@ -42,7 +42,7 @@ void		del_map(t_map **amap)
 		ft_memdel((void **)&map->cell);
 }
 
-t_image		*del_image(t_engine *game, t_image *img)
+t_image			*del_image(t_engine *game, t_image *img)
 {
 	if (img != NULL)
 	{

@@ -6,12 +6,12 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/24 17:22:54 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/11/24 19:22:18 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/11/24 22:40:22 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GAME_H
-# define GAME_H
+#ifndef PLACEHOLDER_H
+# define PLACEHOLDER_H
 
 # include "game_engine.h"
 # include "../resources/splash.xpm"

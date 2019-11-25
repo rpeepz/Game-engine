@@ -6,7 +6,7 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/01 00:21:10 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/11/24 19:50:56 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/11/24 22:40:03 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,15 +71,19 @@ typedef struct			s_camera
 	double				zoom;
 }						t_camera;
 
+/*
+**	`key_down` is a cache for held down keys
+*/
 typedef struct			s_input
 {
 	struct s_keys		*key;
 	struct s_mouse		*mouse;
-	char				key_down[8]; //cache for held down keys
+	char				key_down[8];
 }						t_input;
 
 /*
 **	player location and view direction on 2d map
+**	`depth` is how far a player can see
 */
 typedef struct			s_player
 {
@@ -88,7 +92,7 @@ typedef struct			s_player
 	t_2dp				eye;
 	float				angle;
 	float				fov;
-	float				depth; //how far player can see
+	float				depth;
 }						t_player;
 
 /*
@@ -134,23 +138,22 @@ int						del_array(char **arr, int len);
 int						ft_help(void);
 int						ft_out(int key);
 
-void					render(t_engine *game);
-void					start_engine(t_engine *game);
+void					render(t_engine *eng);
+void					start_engine(t_engine *eng);
 
 int						del_players(t_player **aplayers, int i);
-t_player				*init_players(t_engine *engine);
+t_player				*init_players(t_engine *eng);
 
-t_image					*del_image(t_engine *game, t_image *img);
-t_engine				*del_engine(t_engine **aengine, int i);
+t_image					*del_image(t_engine *eng, t_image *img);
+t_engine				*del_engine(t_engine **aeng, int i);
 t_engine				*init_engine(char *title, t_map *map);
 
 void					del_map(t_map **amap);
 int						validate_map(char *file, t_map *map);
 
-
-int						hook_keydown(int key, t_engine *game);
-int						hook_keyup(int key, t_engine *game);
-int						hook_mousedown(int button, int x, int y, t_engine *game);
-int						hook_mousemove(int x, int y, t_engine *game);
+int						hook_keydown(int key, t_engine *eng);
+int						hook_keyup(int key, t_engine *eng);
+int						hook_mousedown(int button, int x, int y, t_engine *eng);
+int						hook_mousemove(int x, int y, t_engine *eng);
 
 #endif

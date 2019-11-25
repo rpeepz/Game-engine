@@ -6,7 +6,7 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/01 04:17:09 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/11/24 19:53:48 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/11/24 22:42:07 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@ static t_image	*new_image(t_engine *engine)
 	return (img);
 }
 
-t_input				*init_input()
+t_input			*init_input(void)
 {
 	t_input		*in;
-	
+
 	if (!(in = ft_memalloc(sizeof(t_input))) ||
 		!(in->key = ft_memalloc(sizeof(t_keys))) ||
 		!(in->mouse = ft_memalloc(sizeof(t_mouse))))
@@ -37,7 +37,7 @@ t_input				*init_input()
 	return (in);
 }
 
-t_engine			*init_engine(char *title, t_map *map)
+t_engine		*init_engine(char *title, t_map *map)
 {
 	t_engine	*engine;
 	int			i;
@@ -61,7 +61,7 @@ t_engine			*init_engine(char *title, t_map *map)
 	return (engine);
 }
 
-t_player			*init_players(t_engine *engine)
+t_player		*init_players(t_engine *engine)
 {
 	t_player	*players;
 	int			i;
