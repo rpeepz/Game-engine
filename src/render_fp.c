@@ -6,7 +6,7 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/21 20:11:33 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/11/24 22:36:38 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/11/24 23:51:03 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ void	draw_(t_engine *engine, t_fprender v, t_point pixel, int *color)
 **	are sent and draw column by column the values retrieved from get_hit
 */
 
-void	render(t_engine *engine)
+void	render_fp(t_engine *engine)
 {
 	t_point		pixel;
 	t_fprender	v;

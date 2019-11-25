@@ -6,7 +6,7 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/19 13:14:09 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/11/24 20:04:51 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/11/25 06:25:36 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ int				hook_mousemove(int x, int y, t_engine *engine)
 			engine->in->mouse->lasty = engine->in->mouse->y;
 			engine->in->mouse->x = x;
 			engine->in->mouse->y = y;
-			render(engine);
+			render_fp(engine);
 		}
 	}
 	else
@@ -94,7 +94,7 @@ static int		check_clip(t_engine engine, int key)
 	loc.y += cosf(engine.player[0].angle) * ((key == KEY_UP) ?
 	0.5f : -0.5f);
 	if ((int)loc.y < 0 || (int)loc.y > engine.map->height
-	|| (int)loc.x < 0|| (int)loc.x > engine.map->width ||
+	|| (int)loc.x < 0 || (int)loc.x > engine.map->width ||
 	!(engine.map->cell[(int)loc.y][(int)loc.x]))
 		return (0);
 	return (1);
@@ -155,6 +155,6 @@ int				hook_keydown(int key, t_engine *engine)
 		exit((int)del_engine(&engine, 0));
 	}
 	if (VALID_IN_X(key) || VALID_IN_Y(key) || VALID_IN_Z(key) || key == KEY_R)
-		render(engine);
+		render_fp(engine);
 	return (0);
 }
