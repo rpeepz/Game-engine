@@ -6,11 +6,11 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/20 04:23:11 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/06/20 05:02:01 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/11/01 22:14:24 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/libft.h"
+#include "../../includes/ft_sprintf.h"
 
 static void		pos_justify(char *buf, t_mod mod, int len)
 {
@@ -29,9 +29,7 @@ static void		pos_justify(char *buf, t_mod mod, int len)
 static void		right_justify(char *buf, char *num, t_mod mod, int capital)
 {
 	int		len;
-	int		nbyte;
 
-	nbyte = 0;
 	if ((len = LEN(num)) && mod.fl.pound && num[0] != '0' && num[0] != '\0')
 	{
 		if (mod.fl.fzero && mod.prcsn == -1)

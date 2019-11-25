@@ -6,11 +6,11 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 23:52:48 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/05/26 16:35:36 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/11/01 22:14:33 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/libft.h"
+#include "../../includes/ft_printf.h"
 
 /*
 **	b, B	The int (or variant) argument is converted to unsigned binary.
@@ -121,11 +121,9 @@ int				convert_b(t_mods modifiers, va_list ap, int i)
 {
 	uint64_t	num;
 	int			nbyte;
-	int			len;
 	char		*str;
 
 	nbyte = 0;
-	len = -1;
 	num = convert_length(modifiers.length, ap);
 	if (modifiers.length == 'l' || modifiers.length / 2 == 'l' ||
 		modifiers.length == 'z')

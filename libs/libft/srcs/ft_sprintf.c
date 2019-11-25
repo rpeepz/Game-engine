@@ -6,11 +6,11 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/25 21:28:19 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/06/20 05:18:31 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/11/01 22:33:03 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "../includes/ft_sprintf.h"
 
 /*
 **	Produces a string of text stored in a buffer with variable size according
@@ -37,6 +37,7 @@ static int		parse_string(char *buf, char **str, va_list ap)
 	IF_RETURN((i == 2 || i == 12) && (*str)++, i_to_buf(buf, modifier, ap));
 	IF_RETURN(i == 3 && (*str)++, c_to_buf(buf, modifier, ap));
 	IF_RETURN(i == 4 && (*str)++, s_to_buf(buf, modifier, ap));
+	IF_RETURN((i == 7 || i == 17) && (*str)++, u_to_buf(buf, modifier, ap, i));
 	IF_RETURN((i == 8 || i == 18) && (*str)++, x_to_buf(buf, modifier, ap, i));
 	return (42);
 }
