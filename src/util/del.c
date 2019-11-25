@@ -6,11 +6,12 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 17:02:28 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/11/24 22:37:39 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/11/25 00:07:20 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/game_engine.h"
+#include "../../includes/placeholder.h"
 
 int				del_array(char **arr, int len)
 {

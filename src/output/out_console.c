@@ -6,7 +6,7 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/01 03:40:38 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/11/24 22:41:56 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/11/25 06:16:59 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,13 +64,33 @@ int		ft_out(int key)
 **	ft_printf("%11c\tReset position, 'Z' & zoom\n", 'R');
 */
 
-int		ft_help(void)
+int		help(void)
 {
 	ft_printf("Controls:\n");
 	ft_printf("%11s\t\n", "Arrow Keys");
-	ft_printf("%11s\tMove forward\n", "UP");
-	ft_printf("%11s\tMove backward\n", "DOWN");
-	ft_printf("%11s\tTurn\n", "LEFT/RIGHT");
-	ft_printf("%11s\tQuit\n", "esc");
+	if (!TOP_DOWN)
+	{
+		ft_printf("%11s\tMove forward\n", "UP");
+		ft_printf("%11s\tMove backward\n", "DOWN");
+		ft_printf("%11s\tTurn\n", "LEFT/RIGHT");
+	}
+	else
+	{
+		ft_printf("%11s\tMove right\n", "RIGHT");
+		ft_printf("%11s\tMove left\n", "LEFT");
+		ft_printf("%11s\t(jump/attack)\n", "space");
+	}
+	ft_printf("\n%11s\tQuit\n", "esc");
+	return (1);
+}
+
+int		ft_menus(int type)
+{
+	if (type)
+	{
+		ft_printf("\nTo choose:\n");
+		ft_printf("Press the \033[31;1;4mNUMBER\033[0m corresponding to the ");
+		ft_printf("\033[31;1;4mITEM\033[0m you'd like\n");
+	}
 	return (1);
 }

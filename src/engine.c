@@ -6,7 +6,7 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 16:46:19 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/11/24 22:32:05 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/11/25 07:14:19 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,9 @@ void	splash(t_engine *engine)
 
 	tw = 0;
 	th = 0;
-	ft_help();
-	mlx_put_image_to_window(engine->mlx, engine->win,
-	mlx_xpm_to_image(engine->mlx, _splash_, &tw, &th),
+	help();
+	mlx_put_image_to_window(engine->mlx, engine->win,\
+	mlx_xpm_to_image(engine->mlx, _splash_, &tw, &th),\
 	(WIDTH / 2 - (tw / 2)), (HEIGHT / 2 - (th / 2)));
 	mlx_string_put(engine->mlx, engine->win,
 	(WIDTH * 10 / 20), (HEIGHT * 10 / 50),
@@ -58,8 +58,10 @@ void	start_engine(t_engine *engine)
 {
 	if (!engine->started)
 		splash(engine);
-	render(engine);
-	// mlx_do_key_autorepeaton(engine->mlx);
+	if (TOP_DOWN)
+		top_down(engine);
+	render_fp(engine);
+	mlx_do_key_autorepeaton(engine->mlx);
 	mlx_hook(engine->win, 2, 0, hook_keydown, engine);
 	mlx_hook(engine->win, 4, 0, hook_mousedown, engine);
 	mlx_hook(engine->win, 6, 0, hook_mousemove, engine);

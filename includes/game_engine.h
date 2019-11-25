@@ -6,7 +6,7 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/01 00:21:10 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/11/24 22:40:03 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/11/25 04:08:18 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@
 # define VALID_IN_Y(x) (x == KEY_UP || x == KEY_DOWN)
 # define VALID_IN_Z(x) (x == KEY_PLUS || x == KEY_MINUS || x == KEY_SPACE)
 # define STATIC_ZOOM(x) (x == PG_UP || x == PG_DOWN)
-# define LAYERS 5
 # define PI 3.1415926535
+# define TOP_DOWN 1
 # define SINGLE_CORE 1
 # define THREAD_COUNT 8
 # ifdef _DEBUG_RULE_
@@ -135,10 +135,10 @@ typedef struct			s_game_thread
 */
 
 int						del_array(char **arr, int len);
-int						ft_help(void);
+int						help(void);
 int						ft_out(int key);
 
-void					render(t_engine *eng);
+void					render_fp(t_engine *eng);
 void					start_engine(t_engine *eng);
 
 int						del_players(t_player **aplayers, int i);

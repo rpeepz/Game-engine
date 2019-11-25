@@ -6,11 +6,12 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/01 04:17:09 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/11/24 22:42:07 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/11/25 00:07:02 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/game_engine.h"
+#include "../../includes/placeholder.h"
 
 static t_image	*new_image(t_engine *engine)
 {

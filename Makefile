@@ -6,7 +6,7 @@
 #    By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/01 00:16:40 by rpapagna          #+#    #+#              #
-#    Updated: 2019/11/24 20:06:06 by rpapagna         ###   ########.fr        #
+#    Updated: 2019/11/25 04:40:45 by rpapagna         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,8 +22,11 @@ NC		= \033[0m
 
 SRC		= main.c \
 		engine.c \
-		render.c \
-		inputs.c
+		render_fp.c \
+		menu.c \
+		inputs.c \
+		render_top.c \
+		confirm.c
 UTIL	= init.c \
 		del.c \
 		map.c

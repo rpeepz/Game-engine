@@ -1,40 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   render_top.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/01 03:38:46 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/11/25 04:08:18 by rpapagna         ###   ########.fr       */
+/*   Created: 2019/09/21 20:11:33 by rpapagna          #+#    #+#             */
+/*   Updated: 2019/11/25 07:23:41 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/game_engine.h"
 #include "../includes/placeholder.h"
 
-/*
-** Validate map, init game, and start game
-*/
-
-int		main(int ac, char **av)
+static void		set_layer(t_engine *engine, int l)
 {
-	t_engine	*game;
-	t_map		map;
-	int			ret;
+	if (l >= LAYERS)
+		l = 0;
+	mlx_put_image_to_window(engine->mlx, engine->win,\
+	engine->scene[l], 0, 0);
+}
 
-	ft_bzero(&map, sizeof(map));
-	if (!TOP_DOWN)
-	{
-		if (ac != 2)
-			return (ft_printf("%s\n", USAGE));
-		if (!ft_strcmp(av[1], "help"))
-			return (help());
-		if ((ret = validate_map(av[1], &map)) <= 0)
-			return (ft_out(ret));
-	}
-	if (!(game = init_engine("Fighter", &map)))
-		return (ft_out(-42));
-	start_engine(game);
-	return (0);
+void			render_top(t_engine *engine, t_fight f)
+{
+	set_layer(engine, L_BACK);
+	(void)f;
 }
